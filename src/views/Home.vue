@@ -1,18 +1,44 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul class="countryMealsList__list">
+      <!-- <li
+        class="countryMealsList__list-item"
+        v-for="game in games"
+        :key="game.id"
+      >
+         <a-card>
+          <img slot="cover" alt="example" :src="meals.strMealThumb" />
+        </a-card> 
+         <span class="countryMealsList__list-item-title">{{
+          meals.strMeal
+        }}</span>
+      </li> -->
+    </ul>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script> 
+import { httpService } from "../http/httpService";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  data() {
+    return {
+      games: {},
+    };
+  },
+
+  async created() {
+    const gameList = await httpService.getGames();
+     console.log(gameList);
+    this.games = gameList;
+    console.log(this.games); 
   }
-}
+};
 </script>
+
+<style lang="scss">
+.btn {
+  @include flex(center, center);
+}
+</style>
