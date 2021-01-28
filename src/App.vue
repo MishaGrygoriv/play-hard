@@ -1,19 +1,17 @@
 <template>
   <div class="app">
-     <main-layout>
-  <router-view/>
-</main-layout>
+    <main-layout>
+      <router-view />
+    </main-layout>
   </div>
 </template>
 <script>
-import MainLayout from './components/layout/MainLayout'
+import MainLayout from "./components/layout/MainLayout";
 
-  export default {
-    name: 'App',
-    components: {
-      MainLayout,
-    }
-  }
+export default {
+  name: "App",
+  components: {
+    MainLayout,
+  },
+};
 </script>
-
-
