@@ -1,6 +1,5 @@
 <template>
   <div class="side-bar container">
-    <!-- <div class="side-bar__hidden"></div> -->
     <ul class="side-bar__list-icon">
       <li class="side-bar__item-icon">
         <a-button
@@ -17,8 +16,9 @@
     <ul class="side-bar__list-link">
       <li class="side-bar__item">
         <a-input
+          @keyup.enter="atPress()"
           v-model="query"
-          placeholder="Search Games..."
+          placeholder="search"
           class="side-bar__input"
         />
       </li>
@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   name: "SideBar",
@@ -110,20 +110,39 @@ export default {
     };
   },
   computed: {
-    ...mapState("games", ["loading", "games"]),
+    ...mapState({
+      loading: ({ games }) => games.loading,
+      games: ({ games }) => games,
+      page: ({ games }) => games.page,
+    }),
   },
   methods: {
     ...mapActions("games", ["getGamesByQuery"]),
-    async handleSubmit() {
-      this.$router.push("/games/gamesInput");
-      //     // this.loading = true;
-      await this.getGamesByQuery(this.query);
-      //     // setTimeout(() => {
-      //     //   this.loading = false;
-      //     //   this.$message.success("Loaded Successfuly");
-      //     // }, 2000);
+    ...mapMutations("games", ["changePage", "setInitialPage"]),
+    handleSubmit() {
+      if (this.$route?.query?.search !== this.query) {
+        this.$router?.push({
+          path: "/games/gamesInput",
+          query: { search: this.query },
+        });
+      }
+      this.setInitialPage();
+      this.getGamesByQuery({ query: this.query, page: this.page });
+      // async handleSubmit() {
+      // if (this.$route.path === "/" || this.$route.path === this.routes.name) {
+      //   this.$router.push("/games/gamesInput");
+      //   this.getGamesByQuery({ query: this.query });
+      // } else {
+      //   await this.getGamesByQuery({ query: this.query });
+      // }
+    },
+    atPress() {
+      this.handleSubmit();
     },
   },
+  // async created() {
+  //   await this.getGamesByQuery({ query: this.query });
+  // },
 };
 </script>
 <style lang="scss">
@@ -142,8 +161,9 @@ export default {
   //   z-index: 20;
   // }
   &__list-icon {
-    padding: 20px 15px;
+    padding: 45px 15px;
     width: 50px;
+    min-height: 100vh;
     @include flex(flex-start, start, column);
     color: $text-color;
     background-color: $side-bar-bg-color;
@@ -155,8 +175,9 @@ export default {
     transform: translateX(-200px);
     position: absolute;
     top: 125px;
-    padding: 16px;
+    padding: 39px;
     width: 200px;
+    min-height: 100vh;
     transition: transform 0.5s ease;
     z-index: 4;
     background-color: $side-bar-bg-color;
@@ -177,6 +198,19 @@ export default {
       margin-bottom: 40px;
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+  }
+  &__item {
+    &:first-child {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 122px;
+        height: 1px;
+        background-color: $input-border-color;
+        bottom: -2px;
       }
     }
   }
@@ -207,6 +241,15 @@ export default {
     }
     &._active {
       color: $yellow-color;
+    }
+  }
+  &__input {
+    background: inherit;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    &:focus {
+      box-shadow: none;
     }
   }
   // // margin-left: 150px;

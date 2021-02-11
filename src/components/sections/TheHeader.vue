@@ -1,43 +1,59 @@
 <template>
   <div class="header">
     <div class="header__wrapper container">
-      <a href="#" class="header__logo">Play hard</a>
+      <div class="header__logo-wrapper">
+        <icon-logo class="header__logo-icon" />
+        <a href="#" class="header__logo">Play hard</a>
+      </div>
       <ul class="header__list">
-        <li class="header__item">
-          <a href="#" class="header__link">Community</a>
-        </li>
-        <li class="header__item">
-          <a href="#" class="header__link">Forum</a>
-        </li>
-        <li class="header__item">
-          <a href="#" class="header__link">Support</a>
-        </li>
-        <li class="header__item">
-          <a href="#" class="header__link">About</a>
+        <li class="header__item" v-for="item in items" :key="item.name">
+          <a href="#" class="header__link">{{ item.name }}</a>
         </li>
       </ul>
       <div class="header__icon-wrapper">
-        <a-icon
-          class="header__icon"
-          type="heart"
-          :style="{ fontSize: '20px', color: '#9d9d9d' }"
-        />
-        <a-icon
-          class="header__icon"
-          type="shopping"
-          :style="{ fontSize: '20px', color: '#9d9d9d' }"
-        />
+        <a href="#" class="header__icon">
+          <a-icon type="heart" />
+        </a>
+        <a href="#" class="header__icon">
+          <a-icon type="shopping" />
+        </a>
       </div>
       <div class="header__login-wrapper">
         <a href="#" class="header__login">Login</a>
+        <the-login />
         <a href="#" class="header__login">Registration</a>
       </div>
     </div>
   </div>
 </template>
 <script>
+import TheLogin from "../common/login/TheLogin.vue";
+import IconLogo from "../icons/IconLogo";
+
 export default {
   name: "TheNav",
+  components: {
+    IconLogo,
+    TheLogin,
+  },
+  data() {
+    return {
+      items: [
+        {
+          name: "Community",
+        },
+        {
+          name: "Forum",
+        },
+        {
+          name: "Support",
+        },
+        {
+          name: "About",
+        },
+      ],
+    };
+  },
 };
 </script>
 <style lang="scss">
@@ -45,14 +61,20 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 20;
-  padding: 43px 0;
+  padding: 43px 20px;
   background-color: $navigation-bg-color;
   box-shadow: 0px 30px 43px 0 rgba(11, 0, 0, 0.3);
   &__wrapper {
     @include flex(space-between, center);
   }
+  &__logo-icon {
+    margin-right: 12px;
+  }
   &__logo {
     @include text($H260, 400, $text-color);
+    &:hover {
+      color: $yellow-color;
+    }
   }
   &__list {
     @include flex(flex-start, flex-start);
@@ -67,14 +89,22 @@ export default {
   }
   &__link {
     @include text($H40, 400, $text-color);
+    &:hover {
+      color: $yellow-color;
+    }
   }
   &__icon-wrapper {
     display: flex;
   }
   &__icon {
     margin-right: 40px;
+    color: $text-color;
+    font-size: $H200;
     &:last-child {
       margin-right: 0;
+    }
+    &:hover {
+      color: $yellow-color;
     }
   }
   &__login {
@@ -94,6 +124,9 @@ export default {
         left: -13px;
         right: 0;
       }
+    }
+    &:hover {
+      color: darken($yellow-color, 30);
     }
   }
 }

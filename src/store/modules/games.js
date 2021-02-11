@@ -5,6 +5,8 @@ const state = () => ({
     games: [],
     count: null,
     gameDetails: {},
+    topGames: [],
+    page: 1,
     loading: false,
     error: false,
 });
@@ -28,6 +30,12 @@ const mutations = {
     gameDetailsUpdate(state, payload) {
         state.gameDetails = {...payload };
     },
+    changePage(state, payload) {
+        state.page = payload;
+    },
+    setInitialPage(state) {
+        state.page = 1;
+    },
 };
 const actions = {
     getGamesByQuery: async({ commit }, { query, page = 1 }) => {
@@ -36,7 +44,6 @@ const actions = {
         if (result) {
             commit('gamesSuccess');
             commit('gamesUpdate', { games: result.results, count: result.count });
-            console.log(result);
         } else {
             commit('gamesFailure');
             message.error(result.error);
@@ -45,9 +52,18 @@ const actions = {
     getGameDetails: async({ commit }, payload) => {
         commit("gamesRequest");
         const result = await httpService.getGameDetails(payload);
-        if (result)
-        //.details === 'true'
-        {
+        if (result) {
+            commit('gamesSuccess');
+            commit('gameDetailsUpdate', result);
+        } else {
+            commit('gamesFailure');
+            message.error(result.details);
+        }
+    },
+    getTopGames: async({ commit }, payload) => {
+        commit("gamesRequest");
+        const result = await httpService.getTopGames(payload);
+        if (result) {
             commit('gamesSuccess');
             commit('gameDetailsUpdate', result);
         } else {

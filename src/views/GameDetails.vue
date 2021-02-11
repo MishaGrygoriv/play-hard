@@ -19,7 +19,19 @@
           <span v-for="(name, idx) in genre" :key="idx">{{ name.name }}</span>
         </li>
         <li class="game-details__item">
+          Developer:
+          <span v-for="(name, idx) in developer" :key="idx">{{
+            name.name
+          }}</span>
+        </li>
+        <li class="game-details__item">
           Released: <span>{{ gameDetails.released }}</span>
+        </li>
+        <li class="game-details__item">
+          Platforms:
+          <span v-for="(name, idx) in platforms" :key="idx">{{
+            name.platform.name
+          }}</span>
         </li>
         <li class="game-details__item">
           Website:
@@ -28,10 +40,18 @@
           }}</a>
         </li>
         <li class="game-details__item">
-          <a-progress
+          <!-- <a-progress
             stroke-linecap="square"
             :percent="Number(gameDetails.metacritic)"
             type="circle"
+          /> -->
+          <a-progress
+            type="circle"
+            :stroke-color="{
+              '0%': '#108ee9',
+              '100%': '#87d068',
+            }"
+            :percent="Number(gameDetails.metacritic)"
           />
         </li>
       </ul>
@@ -50,10 +70,18 @@ export default {
     return {
       id: null,
       genre: "",
+      platforms: "",
+      developer: "",
     };
   },
   computed: {
     ...mapState("games", ["gameDetails", "loading"]),
+    // img_section_style: function() {
+    //   var bgImg = this.gameDetails.background_image;
+    //   return {
+    //     background: "url(" + bgImg + ")",
+    //   };
+    // },
     // genreNames() {
     //   return this.gameDetails.genres.map(({ name }) => name).join(" ");
     // },
@@ -65,14 +93,18 @@ export default {
     const { $route, getGameDetails } = this;
     const { id } = $route.params;
     getGameDetails(id);
-    const categoryGames = await httpService.getGameDetails(
-      this.$route.params.id
-    );
-    this.genre = categoryGames.genres;
+    const genreGames = await httpService.getGameDetails(this.$route.params.id);
+    this.genre = genreGames.genres;
+    this.platforms = genreGames.platforms;
+    this.developer = genreGames.developers;
   },
 };
 </script>
 <style lang="scss">
+// .test {
+//   background-image: linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)),
+//     linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5));
+// }
 .game-details {
   @include flex(space-between, space-between);
   padding: 70px 0;
@@ -99,6 +131,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
   &__item {
     @include text($H60, 400, $yellow-color);
@@ -106,6 +139,13 @@ export default {
     span {
       color: #ff7875;
       font-weight: 600;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    span:not(:last-child):after {
+      content: ", ";
     }
   }
   &__title {

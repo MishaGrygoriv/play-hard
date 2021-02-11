@@ -9,9 +9,11 @@
         <slot />
       </div>
     </div>
+    <the-footer />
   </div>
 </template>
 <script>
+import TheFooter from "../sections/TheFooter.vue";
 import TheHeader from "../sections/TheHeader";
 import SideBar from "../side-bar/SideBar.vue";
 
@@ -20,6 +22,7 @@ export default {
   components: {
     SideBar,
     TheHeader,
+    TheFooter,
   },
 };
 </script>
@@ -33,6 +36,6 @@ export default {
   // }
 }
 .main-content {
-  padding: 125px 0;
+  padding: 125px 20px;
 }
 </style>

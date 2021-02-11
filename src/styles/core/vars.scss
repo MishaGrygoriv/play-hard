@@ -9,10 +9,13 @@ $yellow-color: #f5e033;
 $border-line-color: #3c3c3c;
 $red-color: #ef2d2d;
 $side-bar-bg-color: #151515;
-$search-color: #535353;
+$game-subtitle-color: #5d5d5d;
+$input-border-color: #535353;
+$game-title-color: #fefefe;
 $dark-color: #000000;
 $light-color: #ffffff;
 $social-hover-color: #64459b;
+$footer-border-color: #555555;
 ////////////////////////////////////////////////////
 @function px_to_rem($target,
 $context: $base-size) {

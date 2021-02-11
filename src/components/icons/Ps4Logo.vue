@@ -1,0 +1,17 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="117"
+    height="24"
+    viewBox="0 0 117 24"
+  >
+    <image
+      id="_1"
+      data-name="1"
+      width="117"
+      height="24"
+      xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAAAYCAYAAADEbrI4AAAE4UlEQVRoge2ZW4hVVRzGfyenvFRjmQ5DF8uspMKIELvZBFYmFaZkWBaFqRGW2ktEUhFWFFHRxYguUxFEpl1Ec0gss8jSB00QH0yjMktHS82xqRxnTiz4NiwWa+/Z6+w1c3w4HxzO3nvd/mt9+3/dpebmZgIwFlgAfAusBr4Cfg2ZoIaeR13gCiXgXP2mA53AGuBr4FNgXY2z6uOoQAk6nfs+QBPwMLAWWA/co+c1VAmhpKahTc8vAl4FfhDZNVQBMUjdBwwF7rCenSl/O6pGau8j1Kf6sAPYD7wPvOu0LwFOjbSr+4FGoFxgjsPAAWALsLTAPOOB84GBwNEZ/UwM0gU8rXWLwCjOzcBPwMdZ88QgNZnjRE/bKcA1wMoI6zwOHBdhngRbJFtI9D4A+BIYHbjWawVJfQR41Dprc66/p3WOQWpJ/2nBUVMkUs+QVhTR1AbgWWAcMAJYBFwaMP4ti9DvgRnAb5KplDFuT4Xy3gC8DQx2njf0NKndoSHSPH9GmKMVuAXYrb1fopfl5xxjTwCmWPezgA0RZPLhNOBFYJJemKeAe4F69T2UNThW9JuFLJ9TDZjArt1ad2hOGRqd+509JPuDwHYRuhDoB8wLcT29oal7e2GNEAx3DmhrzrFujt4/slzGv7+pl+xH4G5gldpGhChgTFLTfN3yiGugN/ccyZ7lx3wYAjxnHdCyAI1z9xe6dhoaJdNUtc+TubVxOGTCUFKz+vsCpZWKFmPhTqUHrimsBEYLbo8oWyWYC7ygcUtVjSts1vOSermc9F8Zff4AHlB0aN7qFYoWY+Fi4B1rrvcUgXYFaE2Xql8mnfkmomyhuAJ4Q2Z1l6LoaBYti1RTFbpOEd8YoAW4z9PvGP0fUrqA/EKn0pkB8qs7C37Recy6XnwEaFklGAQ8o48hBk8oB40Kl1STftyosH+s09buCRZQqmEqKw9pzNkK/30wGvK5KiKrUvqk4Szr+Uc9ePBpcPcemjnMBF4G+mr/MwOCyDbn/mBW54TUJtnziSlR3Wp9R633tBnzcbpCcRcr9GnO9LkSuE0mx+RcnwHT1JYHdrBQjTSp3bnvyjlulAKhJlWVpnZX5vPgeOdRZnpjSH0JmO1p2yCNeF3+EpljF2XLBKNC/gfyGTYRQ5xxpn56PZD3K72tKb2RirmwLZeR5ZccY8bpxU5Qr8CoqKXZbF2bevCHdmOdh1CTI12mqkuCWTI3az0LDFZBf44CmcRUJHPfmlKKa1HBPy9sImMVTUYCF2S0J2mMiRGetJ7P92iuD7tVQKjTXP1VI98eKOexwIXW/UbgbwWIu3QeRrH+RYtNAJ63fNZwaW+ymYSQNSkkmJLWNvkLg7uAm6SJ7uH/ozkWBRJqcJJ13S9wbBrmWkFLHrTJDc3P2X+jXuqiGCjFSXCV449LliUr1SkBXybTeq1InOII0ao8ymfLd+jAF6i01ddpLysoWiwiWyvc4ATLp2+KcFAo5/0kp388KLNXjQqZ0cCrRV7ZYyXMs47k2jZpLfqhwfUyFx1y8B3yES4MSScrYraxTt9Ylzj+pyRT8V/gxr4L7J8H2/Q70mHO6ou8MqYFHGUVGtxiw3rlquNlAgzp51nmcLOCpBb1TUMooTUEIDSKNDnpK/qZnHYyMEwmaYz8bndIgo9SwW+jNfgA/A8sGPtudaXaZQAAAABJRU5ErkJggg=="
+    />
+  </svg>
+</template>

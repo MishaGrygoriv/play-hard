@@ -110,37 +110,37 @@ export default {
 };
 </script>
 <style lang="scss">
-// .home {
-//   padding: 20px;
-// }
-// .games {
-//   &__form {
-//     @include flex(stretch, stretch);
-//     margin-bottom: 32px;
-//   }
-//   &__input {
-//     flex: 1;
-//     margin-right: 30px;
-//   }
-//   &__row {
-//     @include flex(stretch, stretch);
-//     flex-wrap: wrap;
-//     margin: 0 -10px;
-//   }
-//   &__col {
-//     padding: 10px;
-//     flex: 1 1 calc(100% / 4);
-//     max-width: calc(100% / 4);
-//     & > div {
-//       height: 100%;
-//     }
-//   }
-//   &__icon {
-//     width: 100%;
-//     height: 200px;
-//     margin-bottom: 10px;
-//   }
-// }
+.home {
+  padding: 20px;
+}
+.games {
+  &__form {
+    @include flex(stretch, stretch);
+    margin-bottom: 32px;
+  }
+  &__input {
+    flex: 1;
+    margin-right: 30px;
+  }
+  &__row {
+    @include flex(stretch, stretch);
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  &__col {
+    padding: 10px;
+    flex: 1 1 calc(100% / 4);
+    max-width: calc(100% / 4);
+    & > div {
+      height: 100%;
+    }
+  }
+  &__icon {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+}
 </style>
 
 // @click=" // $router.push({ // name: 'GamesInput', // params: { gamesInput:
