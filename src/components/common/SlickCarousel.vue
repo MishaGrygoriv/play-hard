@@ -13,7 +13,7 @@ import { mapActions, mapState } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import { httpService } from "../../http";
+// import { httpService } from "../../http";
 export default {
   name: "SlickCarousel",
   components: { VueSlickCarousel },
@@ -65,9 +65,13 @@ export default {
     ...mapActions("games", ["fetchTopGames"]),
   },
   async created() {
-    const topGames = await httpService.getTopGames();
-    console.log(topGames.results);
+    await this.fetchTopGames();
+    console.log("this.topGames", this.topGames);
   },
+  // async created() {
+  //   const topGames = await httpService.getTopGames();
+  //   console.log(topGames.results);
+  // },
   // async created() {
   //   const topGames = await httpService.getTopGames();
   //   //   // await this.fetchTopGames;

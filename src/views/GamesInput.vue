@@ -106,12 +106,11 @@ export default {
   },
   data() {
     return {
-      query: "",
       pageSize: 20,
     };
   },
   computed: {
-    ...mapState("games", ["loading", "games", "count", "page"]),
+    ...mapState("games", ["loading", "games", "count", "page", "query"]),
   },
   methods: {
     scrollToTop() {
@@ -127,9 +126,6 @@ export default {
       this.getGamesByQuery({ query: this.query, page: this.page });
       document.body.scrollIntoView();
     },
-  },
-  mounted() {
-    this.query = this.$route.query.search || "";
   },
 };
 </script>

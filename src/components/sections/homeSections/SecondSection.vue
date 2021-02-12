@@ -23,15 +23,28 @@
     <div class="second-section__blocks-container">
       <div class="second-section__blocks-wrapper">
         <div class="second-section__first-block-wrapper">
-          <div class="second-section__first-block"></div>
-          <div class="second-section__second-block"></div>
+          <div class="second-section__small-block"></div>
+          <div class="second-section__big-block"></div>
         </div>
         <div class="second-section__second-block-wrapper">
-          <div class="second-section__third-block"></div>
-          <div class="second-section__fourth-block"></div>
+          <div class="second-section__big-block"></div>
+          <div class="second-section__small-block"></div>
         </div>
       </div>
-      <div class="second-section__fifth-block"></div>
+      <div class="second-section__big-block _right-block"></div>
+    </div>
+    <div class="second-section__blocks-container">
+      <div class="second-section__blocks-wrapper">
+        <div class="second-section__first-block-wrapper">
+          <div class="second-section__small-block"></div>
+          <div class="second-section__small-block"></div>
+        </div>
+        <div class="second-section__second-block-wrapper">
+          <div class="second-section__small-block"></div>
+          <div class="second-section__small-block"></div>
+        </div>
+      </div>
+      <div class="second-section__sec-right-block"></div>
     </div>
   </div>
 </template>
@@ -103,35 +116,36 @@ export default {
   &__second-block-wrapper {
     display: flex;
   }
-  &__first-block {
+  &__small-block {
     background-color: green;
-    width: 200px;
-    height: 200px;
+    min-width: 295px;
+    width: 100%;
+    min-height: 295px;
+    height: 100%;
     flex: 1;
   }
-  &__second-block {
+  &__big-block {
     background-color: red;
-    width: 500px;
-    height: 200px;
+    min-width: 590px;
+    width: 100%;
+    min-height: 295px;
+    height: 100%;
     flex: 2;
-  }
-  &__third-block {
-    background-color: blue;
-    width: 500px;
-    height: 200px;
-    flex: 2;
-  }
-  &__fourth-block {
-    background-color: yellow;
-    width: 200px;
-    height: 200px;
-    flex: 1;
-  }
-  &__fifth-block {
-    background-color: black;
-    width: 200px;
-    height: 400px;
     display: flex;
+    &._right-block {
+      background-color: black;
+      min-width: 295px;
+      width: 100%;
+      min-height: 590px;
+      height: 100%;
+    }
+  }
+  &__sec-right-block {
+    background-color: black;
+    min-width: 590px;
+    width: 100%;
+    min-height: 595px;
+    height: 100%;
   }
 }
 </style>
