@@ -11,10 +11,9 @@ class HttpService {
             return error
         }
     };
-    // getGames = () => this._fetchData(gamesUrls.mainBase);
     getGamesByQuery = (query, page) => this._fetchData(gamesUrls.search(query, page));
     getGameDetails = (id) => this._fetchData(gamesUrls.gameDetails(id));
-    getTopGames = (page) => this._fetchData(gamesUrls.topGames(page));
+    getTopGames = () => this._fetchData(gamesUrls.topGames());
 }
 
 export const httpService = new HttpService();

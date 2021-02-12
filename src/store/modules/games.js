@@ -3,9 +3,9 @@ import { message } from "ant-design-vue";
 
 const state = () => ({
     games: [],
+    topGames: [],
     count: null,
     gameDetails: {},
-    topGames: [],
     page: 1,
     loading: false,
     error: false,
@@ -25,7 +25,10 @@ const mutations = {
     },
     gamesUpdate(state, payload) {
         state.games = [...payload.games];
-        state.count = payload.count
+        state.count = payload.count;
+    },
+    topGamesUpdate(state, payload) {
+        state.topGames = [...payload.topGames];
     },
     gameDetailsUpdate(state, payload) {
         state.gameDetails = {...payload };
@@ -60,17 +63,35 @@ const actions = {
             message.error(result.details);
         }
     },
-    getTopGames: async({ commit }, payload) => {
-        commit("gamesRequest");
-        const result = await httpService.getTopGames(payload);
+    fetchTopGames: async({ commit }) => {
+        const result = await httpService.getTopGames();
         if (result) {
             commit('gamesSuccess');
-            commit('gameDetailsUpdate', result);
+            commit('topGamesUpdate', { topGames: result.results });
         } else {
             commit('gamesFailure');
-            message.error(result.details);
+            message.error(result.error);
         }
     },
+    // fetchTopGames: async({ commit }) => {
+    //     // try {
+    //     //     const tGames = await httpService.getTopGames();
+    //     //     if (tGames) {
+    //     //         commit("topGamesUpdate", { topGames: tGames.results });
+    //     //     }
+    //     // } catch (error) {
+    //     //     console.error(error);
+    //     // }
+    //     commit('gamesRequest');
+    //     const result = await httpService.getTopGames();
+    //     if (result) {
+    //         commit('gamesSuccess');
+    //         commit('topGames', { topGames: result.results });
+    //     } else {
+    //         commit('gamesFailure');
+    //         message.error(result.error);
+    //     }
+    // },
 };
 
 export default {

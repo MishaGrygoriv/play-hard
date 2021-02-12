@@ -20,21 +20,18 @@
       </div>
       <div class="header__login-wrapper">
         <a href="#" class="header__login">Login</a>
-        <the-login />
         <a href="#" class="header__login">Registration</a>
       </div>
     </div>
   </div>
 </template>
 <script>
-import TheLogin from "../common/login/TheLogin.vue";
 import IconLogo from "../icons/IconLogo";
 
 export default {
   name: "TheNav",
   components: {
     IconLogo,
-    TheLogin,
   },
   data() {
     return {

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">
+    <!-- <a-button type="primary" @click="showModal">
       Open Modal
-    </a-button>
+    </a-button> -->
     <a-modal id="modal" v-model="visible" title="Basic Modal" @ok="handleOk">
       <a-form-model
         layout="inline"
