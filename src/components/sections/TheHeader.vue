@@ -3,7 +3,7 @@
     <div class="header__wrapper container">
       <div class="header__logo-wrapper">
         <icon-logo class="header__logo-icon" />
-        <a href="#" class="header__logo">Play hard</a>
+        <a href="/" class="header__logo">Play hard</a>
       </div>
       <ul class="header__list">
         <li class="header__item" v-for="item in items" :key="item.name">

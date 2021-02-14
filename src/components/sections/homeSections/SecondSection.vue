@@ -118,7 +118,7 @@ export default {
   }
   &__small-block {
     background-color: green;
-    min-width: 295px;
+    min-width: 285px;
     width: 100%;
     min-height: 295px;
     height: 100%;
@@ -126,7 +126,7 @@ export default {
   }
   &__big-block {
     background-color: red;
-    min-width: 590px;
+    min-width: 570px;
     width: 100%;
     min-height: 295px;
     height: 100%;
@@ -134,7 +134,7 @@ export default {
     display: flex;
     &._right-block {
       background-color: black;
-      min-width: 295px;
+      min-width: 270px;
       width: 100%;
       min-height: 590px;
       height: 100%;
@@ -142,9 +142,9 @@ export default {
   }
   &__sec-right-block {
     background-color: black;
-    min-width: 590px;
+    min-width: 560px;
     width: 100%;
-    min-height: 595px;
+    min-height: 590px;
     height: 100%;
   }
 }

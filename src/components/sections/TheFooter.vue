@@ -38,7 +38,7 @@
       </div>
       <div class="footer__logo-wrapper">
         <icon-logo class="footer__logo-icon" />
-        <a href="#" class="footer__logo">Play Hard</a>
+        <a href="/" class="footer__logo">Play Hard</a>
       </div>
     </div>
     <div class="footer__contact-wrapper container">

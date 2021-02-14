@@ -6,17 +6,23 @@
           class="side-bar__btn"
           type="primary"
           icon="search"
-          @click="handleSubmit"
+          @click="
+            handleSubmit();
+            scrollToTop();
+          "
         />
       </li>
       <li class="side-bar__item-icon" v-for="icon in icons" :key="icon.type">
-        <a-icon :type="icon.type" />
+        <a-icon class="side-bar__link-icon" :type="icon.type" />
       </li>
     </ul>
     <ul class="side-bar__list-link">
       <li class="side-bar__item">
         <a-input
-          @keyup.enter="atPress()"
+          @keyup.enter="
+            atPress();
+            scrollToTop();
+          "
           v-model="query"
           placeholder="search"
           class="side-bar__input"
@@ -117,6 +123,12 @@ export default {
     }),
   },
   methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
     ...mapActions("games", ["getGamesByQuery"]),
     ...mapMutations("games", ["changePage", "setInitialPage"]),
     handleSubmit() {
@@ -201,6 +213,11 @@ export default {
       }
     }
   }
+  &__link-icon {
+    svg {
+      fill: $text-color;
+    }
+  }
   &__item {
     &:first-child {
       position: relative;
@@ -248,6 +265,7 @@ export default {
     outline: none;
     border: none;
     border-radius: 0;
+    color: $text-color;
     &:focus {
       box-shadow: none;
     }

@@ -6,6 +6,7 @@ const state = () => ({
     topGames: [],
     count: null,
     gameDetails: {},
+    screenShotsGames: {},
     page: 1,
     query: '',
     loading: false,
@@ -34,6 +35,9 @@ const mutations = {
     },
     gameDetailsUpdate(state, payload) {
         state.gameDetails = {...payload };
+    },
+    screenShotsGamesUpdate(state, payload) {
+        state.screenShotsGames = {...payload };
     },
     changePage(state, payload) {
         state.page = payload;
@@ -70,6 +74,17 @@ const actions = {
         if (result) {
             commit('gamesSuccess');
             commit('topGamesUpdate', { topGames: result.results });
+        } else {
+            commit('gamesFailure');
+            message.error(result.error);
+        }
+    },
+    fetchScreenShotsGames: async({ commit }, payload) => {
+        commit("gamesRequest");
+        const result = await httpService.getScreenShotsGames(payload);
+        if (result) {
+            commit('gamesSuccess');
+            commit('screenShotsGamesUpdate', result.results);
         } else {
             commit('gamesFailure');
             message.error(result.error);

@@ -14,6 +14,7 @@ class HttpService {
     getGamesByQuery = (query, page) => this._fetchData(gamesUrls.search(query, page));
     getGameDetails = (id) => this._fetchData(gamesUrls.gameDetails(id));
     getTopGames = () => this._fetchData(gamesUrls.topGames());
+    getScreenShotsGames = (id) => this._fetchData(gamesUrls.screenShotsGames(id));
 }
 
 export const httpService = new HttpService();

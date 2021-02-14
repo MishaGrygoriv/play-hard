@@ -52,12 +52,8 @@
             </span>
             <a-rate class="games__rating-stars" :default-value="game.rating" />
           </div>
-          <a-button class="games__btn" type="primary">
-            in cart $16,99
-          </a-button>
-          <a href="#" class="games__favourite-btn"
-            ><a-icon type="heart" /> <span>Add to wishlist</span></a
-          >
+          <cart-button class="games__btn" />
+          <favourite-button />
         </div>
       </div>
     </div>
@@ -97,12 +93,16 @@
 </template>
 <script>
 import { mapActions, mapMutations, mapState } from "vuex";
+import CartButton from "../components/common/CartButton.vue";
+import FavouriteButton from "../components/common/FavouriteButton.vue";
 import IconPlaceholder from "../components/icons/IconPlaceholder";
 
 export default {
   name: "GamesInput",
   components: {
     IconPlaceholder,
+    CartButton,
+    FavouriteButton,
   },
   data() {
     return {
@@ -211,24 +211,8 @@ export default {
     }
   }
   &__btn {
-    @include flex(center, center);
-    @include text($H80, 600, $dark-color);
-    background-color: $yellow-color;
-    height: 47px;
-    padding: 0 25px;
-    border: none;
-    outline: none;
-    cursor: pointer;
     width: 100%;
     margin-bottom: 23px;
-  }
-  &__favourite-btn {
-    @include flex(center, center);
-    @include text($H40, 400, $yellow-color);
-    svg {
-      font-size: 19px;
-      margin-right: 12px;
-    }
   }
   // &__form {
   //   @include flex(stretch, stretch);

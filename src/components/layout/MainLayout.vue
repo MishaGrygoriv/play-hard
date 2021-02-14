@@ -36,6 +36,6 @@ export default {
   // }
 }
 .main-content {
-  padding: 125px 20px;
+  padding: 125px 0 0;
 }
 </style>

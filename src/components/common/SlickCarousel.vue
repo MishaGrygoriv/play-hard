@@ -1,10 +1,22 @@
 <template>
   <div>
     <VueSlickCarousel v-bind="settings">
+      <div class="slick-carousel" v-for="game in topGames" :key="game.img">
+        <img
+          class="slick-carousel__img"
+          :src="game.background_image"
+          alt="img"
+          @click="
+            $router.push({ name: 'GameDetails', params: { id: game.id } })
+          "
+        />
+      </div>
+    </VueSlickCarousel>
+    <!-- <VueSlickCarousel v-bind="settings">
       <div v-for="item in items" :key="item.img">
         <img class="carousel__img" :src="item.img" alt="img" />
       </div>
-    </VueSlickCarousel>
+    </VueSlickCarousel> -->
   </div>
 </template>
 
@@ -26,9 +38,9 @@ export default {
         focusOnSelect: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        touchThreshold: 5,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        touchThreshold: 4,
       },
       items: [
         {
@@ -84,3 +96,11 @@ export default {
   // },
 };
 </script>
+<style lang="scss">
+.slick-carousel {
+  &__img {
+    width: 295px;
+    height: 219px;
+  }
+}
+</style>
