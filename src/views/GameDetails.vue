@@ -9,7 +9,13 @@
         />
       </div>
       <div class="game-details__test">
-        <div v-for="(image, idx) in test" :key="idx">{{ image.image }}</div>
+        <div v-for="(image, idx) in screenshots" :key="idx">
+          <img
+            class="game-details__img-screenshots"
+            :src="image.image"
+            alt="img"
+          />
+        </div>
       </div>
     </div>
     <div class="game-details__col-right">
@@ -106,7 +112,7 @@ export default {
   data() {
     return {
       id: null,
-      test: "",
+      screenshots: "",
       genre: "",
       platforms: "",
       developer: "",
@@ -132,11 +138,10 @@ export default {
     const { id } = $route.params;
     getGameDetails(id);
     fetchScreenShotsGames(id);
-    console.log("this.screenShotsGames", this.screenGames);
     const screenGames = await httpService.getScreenShotsGames(
       this.$route.params.id
     );
-    this.test = screenGames.image;
+    this.screenshots = screenGames.results;
     const genreGames = await httpService.getGameDetails(this.$route.params.id);
     this.genre = genreGames.genres;
     this.platforms = genreGames.platforms;

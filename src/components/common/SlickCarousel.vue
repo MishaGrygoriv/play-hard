@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <VueSlickCarousel v-bind="settings">
-      <div class="slick-carousel" v-for="game in topGames" :key="game.img">
+  <VueSlickCarousel v-bind="settings" v-if="topGames && topGames.length > 1">
+    <div class="slick-carousel" v-for="game in topGames" :key="game.id">
+      <div class="slick-carousel__img-wrapper">
         <img
           class="slick-carousel__img"
           :src="game.background_image"
           alt="img"
           @click="
-            $router.push({ name: 'GameDetails', params: { id: game.id } })
+            scrollToTop();
+            $router.push({ name: 'GameDetails', params: { id: game.id } });
           "
         />
       </div>
-    </VueSlickCarousel>
-    <!-- <VueSlickCarousel v-bind="settings">
-      <div v-for="item in items" :key="item.img">
+    </div>
+  </VueSlickCarousel>
+  <!-- <VueSlickCarousel v-bind="settings" v-if="top && top.length > 1">
+      <div v-for="item in items" :key="item.img" v-for="game in top" :key="game.id">
         <img class="carousel__img" :src="item.img" alt="img" />
       </div>
     </VueSlickCarousel> -->
-  </div>
 </template>
 
 <script>
@@ -31,16 +32,16 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
-      // top: "",
+      // top: [],
       settings: {
         dots: true,
         arrows: true,
-        focusOnSelect: true,
+        //focusOnSelect: true,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
-        touchThreshold: 4,
+        //touchThreshold: 4,
       },
       items: [
         {
@@ -75,32 +76,36 @@ export default {
   },
   methods: {
     ...mapActions("games", ["fetchTopGames"]),
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
   },
   async created() {
     await this.fetchTopGames();
-    console.log("this.topGames", this.topGames);
+    // this.top = this.topGames.slice(0, 20);
+    console.log(this.topGames);
   },
-  // async created() {
-  //   const topGames = await httpService.getTopGames();
-  //   console.log(topGames.results);
-  // },
-  // async created() {
-  //   const topGames = await httpService.getTopGames();
-  //   //   // await this.fetchTopGames;
-  //   console.log(httpService.getTopGames());
-  //   console.log(topGames.results);
-  //   //   const topGames = await httpService.getTopGames();
-  //   //   // this.top = topGames.results.slice(0, 10);
-  //   //   this.top = topGames.results.genres;
-  //   //   console.log(this.top);
-  // },
 };
 </script>
 <style lang="scss">
 .slick-carousel {
+  &__img-wrapper {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 75%;
+  }
   &__img {
-    width: 295px;
-    height: 219px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 </style>
