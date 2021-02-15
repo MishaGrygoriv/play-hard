@@ -17,6 +17,11 @@
           />
         </div>
       </div>
+      <div class="game-details__test">
+        <div v-for="(name, idx) in video" :key="idx">
+          <video loop :src="name.clip"></video>
+        </div>
+      </div>
     </div>
     <div class="game-details__col-right">
       <ul class="game-details__list">
@@ -116,6 +121,7 @@ export default {
       genre: "",
       platforms: "",
       developer: "",
+      video: "",
     };
   },
   computed: {
@@ -146,6 +152,8 @@ export default {
     this.genre = genreGames.genres;
     this.platforms = genreGames.platforms;
     this.developer = genreGames.developers;
+    this.video = genreGames.clip;
+    console.log(this.video);
   },
 };
 </script>

@@ -23,38 +23,201 @@
     <div class="second-section__blocks-container">
       <div class="second-section__blocks-wrapper">
         <div class="second-section__first-block-wrapper">
-          <div class="second-section__small-block"></div>
-          <div class="second-section__big-block"></div>
+          <div
+            class="second-section__small-block _bg-hover"
+            @click="$router.push({ path: 'games' })"
+          >
+            <div class="second-section__top-wrapper">
+              <a-icon class="second-section__icon" type="crown" />
+              <h2 class="second-section__title">Top Games</h2>
+            </div>
+          </div>
+          <div class="second-section__big-block">
+            <div class="second-section__big-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in spider"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
         </div>
         <div class="second-section__second-block-wrapper">
-          <div class="second-section__big-block"></div>
-          <div class="second-section__small-block"></div>
+          <div class="second-section__big-block">
+            <div class="second-section__big-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in cyberpunk"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
+          <div class="second-section__small-block">
+            <div class="second-section__small-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in rising"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="second-section__big-block _right-block"></div>
+      <div class="second-section__big-block _right-block">
+        <div class="second-section__big-img-wrapper">
+          <img
+            class="second-section__img"
+            v-for="game in medium"
+            :key="game.id"
+            :src="game.background_image"
+            alt="img"
+            @click="
+              scrollToTop();
+              $router.push({
+                name: 'GameDetails',
+                params: { id: game.id },
+              });
+            "
+          />
+        </div>
+      </div>
     </div>
     <div class="second-section__blocks-container">
       <div class="second-section__blocks-wrapper">
         <div class="second-section__first-block-wrapper">
-          <div class="second-section__small-block"></div>
-          <div class="second-section__small-block"></div>
+          <div class="second-section__small-block">
+            <div class="second-section__small-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in speed"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
+          <div class="second-section__small-block">
+            <div class="second-section__small-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in hitman"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
         </div>
         <div class="second-section__second-block-wrapper">
-          <div class="second-section__small-block"></div>
-          <div class="second-section__small-block"></div>
+          <div class="second-section__small-block">
+            <div class="second-section__small-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="game in pathless"
+                :key="game.id"
+                :src="game.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
+          <div class="second-section__small-block">
+            <div class="second-section__small-img-wrapper">
+              <img
+                class="second-section__img"
+                v-for="(name, idx) in tes"
+                :key="idx"
+                :src="name.background_image"
+                alt="img"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: game.id },
+                  });
+                "
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="second-section__sec-right-block"></div>
+      <div class="second-section__sec-right-block">
+        <div class="second-section__big-img-wrapper _sec">
+          <img
+            class="second-section__img"
+            v-for="game in valhala"
+            :key="game.id"
+            :src="game.background_image"
+            alt="img"
+            @click="
+              scrollToTop();
+              $router.push({
+                name: 'GameDetails',
+                params: { id: game.id },
+              });
+            "
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 import Ps4Logo from "../../icons/Ps4Logo";
 import XboxOneLogo from "../../icons/XboxOneLogo";
 import PcGamerLogo from "../../icons/PcGamerLogo";
 import WiiLogo from "../../icons/WiiLogo";
 import Ps3Logo from "../../icons/Ps3Logo";
 import Xbox360Logo from "../../icons/Xbox360Logo";
+import { httpService } from "../../../http";
 
 export default {
   name: "SecondSection",
@@ -68,33 +231,54 @@ export default {
   },
   data() {
     return {
-      items: [
-        {
-          img: "https://picsum.photos/id/237/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/238/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/239/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/240/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/241/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/242/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/243/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/244/800/450",
-        },
-      ],
+      hitman: [],
+      valhala: [],
+      medium: [],
+      cyberpunk: [],
+      souls: [],
+      speed: [],
+      pathless: [],
+      rising: [],
+      spider: [],
+      tes: [],
+      idGames: { name1: 41494 },
+      idGamesList: [],
     };
+  },
+  computed: {
+    ...mapState("games", ["topGames", "gameDetails"]),
+  },
+  methods: {
+    ...mapActions("games", ["fetchTopGames", "getGameDetails"]),
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+  async created() {
+    const pushIdGames = (id) => {
+      httpService.getGameDetails(id);
+      console.log();
+    };
+    this.idGamesList = pushIdGames(this.idGames.name1);
+    console.log(this.idGamesList);
+
+    await this.fetchTopGames();
+    this.getGameDetails();
+    // const test = await httpService.getGameDetails(41494);
+    // this.tes = test;
+    // console.log(this.tes);
+    this.hitman = this.topGames.slice(8, 9);
+    this.valhala = this.topGames.slice(2, 3);
+    this.medium = this.topGames.slice(5, 6);
+    this.cyberpunk = this.topGames.slice(0, 1);
+    this.souls = this.topGames.slice(14, 15);
+    this.speed = this.topGames.slice(17, 18);
+    this.pathless = this.topGames.slice(15, 16);
+    this.rising = this.topGames.slice(3, 4);
+    this.spider = this.topGames.slice(4, 5);
   },
 };
 </script>
@@ -117,31 +301,77 @@ export default {
     display: flex;
   }
   &__small-block {
-    background-color: green;
+    background-color: $side-bar-bg-color;
     min-width: 285px;
     width: 100%;
     min-height: 295px;
     height: 100%;
-    flex: 1;
+    @include flex(center, center);
+    &._bg-hover {
+      transition: background-color 0.5s ease;
+      &:hover {
+        background-color: $social-hover-color;
+      }
+    }
+  }
+  &__top-wrapper {
+    @include flex(center, center, column);
+  }
+  &__icon {
+    color: $text-color;
+    margin-bottom: 24px;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &__title {
+    @include text($H200, 400, $text-color);
+    text-transform: uppercase;
+  }
+  &__small-img-wrapper {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 104%;
+    width: 100%;
   }
   &__big-block {
-    background-color: red;
+    background-color: $side-bar-bg-color;
     min-width: 570px;
     width: 100%;
     min-height: 295px;
     height: 100%;
-    flex: 2;
     display: flex;
     &._right-block {
-      background-color: black;
+      background-color: $side-bar-bg-color;
       min-width: 270px;
       width: 100%;
       min-height: 590px;
       height: 100%;
     }
   }
+  &__big-img-wrapper {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 51%;
+    width: 100%;
+    &._sec {
+      padding-bottom: 98.4%;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
   &__sec-right-block {
-    background-color: black;
+    background-color: $side-bar-bg-color;
     min-width: 560px;
     width: 100%;
     min-height: 590px;

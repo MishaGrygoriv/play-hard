@@ -43,32 +43,6 @@ export default {
         slidesToScroll: 4,
         //touchThreshold: 4,
       },
-      items: [
-        {
-          img: "https://picsum.photos/id/237/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/238/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/239/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/240/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/241/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/242/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/243/800/450",
-        },
-        {
-          img: "https://picsum.photos/id/244/800/450",
-        },
-      ],
     };
   },
   computed: {
@@ -86,7 +60,7 @@ export default {
   async created() {
     await this.fetchTopGames();
     // this.top = this.topGames.slice(0, 20);
-    console.log(this.topGames);
+    // console.log(this.topGames);
   },
 };
 </script>
@@ -96,6 +70,7 @@ export default {
     overflow: hidden;
     position: relative;
     padding-bottom: 75%;
+    cursor: pointer;
   }
   &__img {
     position: absolute;
