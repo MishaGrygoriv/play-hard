@@ -172,7 +172,7 @@
             <div class="second-section__small-img-wrapper">
               <img
                 class="second-section__img"
-                v-for="(name, idx) in tes"
+                v-for="(name, idx) in pushIdGames"
                 :key="idx"
                 :src="name.background_image"
                 alt="img"
@@ -217,7 +217,7 @@ import PcGamerLogo from "../../icons/PcGamerLogo";
 import WiiLogo from "../../icons/WiiLogo";
 import Ps3Logo from "../../icons/Ps3Logo";
 import Xbox360Logo from "../../icons/Xbox360Logo";
-import { httpService } from "../../../http";
+// import { httpService } from "../../../http";
 
 export default {
   name: "SecondSection",
@@ -241,12 +241,25 @@ export default {
       rising: [],
       spider: [],
       tes: [],
-      idGames: { name1: 41494 },
-      idGamesList: [],
+      idGames: [
+        {
+          name: 41494,
+        },
+      ],
+      // idGamesList: [],
     };
   },
   computed: {
     ...mapState("games", ["topGames", "gameDetails"]),
+    pushIdGames() {
+      const arr = [];
+      for (let i in this.idGames) {
+        if (this.idGames.name === this.topGames.id) {
+          arr.push(this.topGames[i]);
+        }
+      }
+      return arr;
+    },
   },
   methods: {
     ...mapActions("games", ["fetchTopGames", "getGameDetails"]),
@@ -258,12 +271,8 @@ export default {
     },
   },
   async created() {
-    const pushIdGames = (id) => {
-      httpService.getGameDetails(id);
-      console.log();
-    };
-    this.idGamesList = pushIdGames(this.idGames.name1);
-    console.log(this.idGamesList);
+    // this.idGamesList = pushIdGames(this.idGames.name1);
+    // console.log(this.idGamesList);
 
     await this.fetchTopGames();
     this.getGameDetails();
