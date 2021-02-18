@@ -4,6 +4,7 @@ import { message } from "ant-design-vue";
 const state = () => ({
     games: [],
     topGames: [],
+    bestGamesOfTheYear: [],
     count: null,
     gameDetails: {},
     screenShotsGames: {},
@@ -35,6 +36,10 @@ const mutations = {
     },
     gameDetailsUpdate(state, payload) {
         state.gameDetails = {...payload };
+    },
+    bestGamesOfTheYearUpdate(state, payload) {
+        state.bestGamesOfTheYear = [...payload.bestGamesOfTheYear];
+        state.count = payload.count;
     },
     screenShotsGamesUpdate(state, payload) {
         state.screenShotsGames = {...payload };
@@ -85,6 +90,16 @@ const actions = {
         if (result) {
             commit('gamesSuccess');
             commit('screenShotsGamesUpdate', result.results);
+        } else {
+            commit('gamesFailure');
+            message.error(result.error);
+        }
+    },
+    fetchBestGamesOfTheYear: async({ commit }, page = 1) => {
+        const result = await httpService.getBestGamesOfTheYear(page);
+        if (result) {
+            commit('gamesSuccess');
+            commit('bestGamesOfTheYearUpdate', { bestGamesOfTheYear: result.results, count: result.count });
         } else {
             commit('gamesFailure');
             message.error(result.error);

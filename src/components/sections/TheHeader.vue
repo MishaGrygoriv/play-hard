@@ -6,8 +6,15 @@
         <a href="/" class="header__logo">Play hard</a>
       </div>
       <ul class="header__list">
-        <li class="header__item" v-for="item in items" :key="item.name">
-          <a href="#" class="header__link">{{ item.name }}</a>
+        <li class="header__item" v-for="route in routes" :key="route.name">
+          <!-- <a href="#" class="header__link">{{ route.name }}</a> -->
+          <router-link
+            active-class="_active"
+            exact
+            class="side-bar__link"
+            :to="route.path"
+            >{{ route.name }}</router-link
+          >
         </li>
       </ul>
       <div class="header__icon-wrapper">
@@ -35,18 +42,22 @@ export default {
   },
   data() {
     return {
-      items: [
+      routes: [
         {
           name: "Community",
+          path: "/games",
         },
         {
           name: "Forum",
+          path: "/news",
         },
         {
           name: "Support",
+          path: "/support",
         },
         {
           name: "About",
+          path: "/about",
         },
       ],
     };
@@ -84,12 +95,12 @@ export default {
       margin-right: 0;
     }
   }
-  &__link {
-    @include text($H40, 400, $text-color);
-    &:hover {
-      color: $yellow-color;
-    }
-  }
+  // &__link {
+  //   @include text($H40, 400, $text-color);
+  //   &:hover {
+  //     color: $yellow-color;
+  //   }
+  // }
   &__icon-wrapper {
     display: flex;
   }

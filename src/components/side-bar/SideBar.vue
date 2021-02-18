@@ -28,7 +28,12 @@
           class="side-bar__input"
         />
       </li>
-      <li class="side-bar__item" v-for="route in routes" :key="route.name">
+      <li
+        class="side-bar__item"
+        v-for="route in routes"
+        :key="route.name"
+        @click="scrollToTop()"
+      >
         <router-link
           active-class="_active"
           exact

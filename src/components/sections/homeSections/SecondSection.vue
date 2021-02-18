@@ -20,187 +20,166 @@
         <xbox360-logo />
       </li>
     </ul>
-    <div class="second-section__blocks-container">
-      <div class="second-section__blocks-wrapper">
-        <div class="second-section__first-block-wrapper">
-          <div
-            class="second-section__small-block _bg-hover"
-            @click="$router.push({ path: 'games' })"
-          >
-            <div class="second-section__top-wrapper">
-              <a-icon class="second-section__icon" type="crown" />
-              <h2 class="second-section__title">Top Games</h2>
+    <div class="second-section__container">
+      <div class="second-section__blocks-container">
+        <div class="second-section__blocks-wrapper">
+          <div class="second-section__first-block-wrapper">
+            <div
+              class="second-section__small-block _bg-hover"
+              @click="
+                scrollToTop();
+                $router.push({ path: 'games' });
+              "
+            >
+              <div class="second-section__top-wrapper">
+                <a-icon class="second-section__icon" type="crown" />
+                <h2 class="second-section__title">Top Games</h2>
+              </div>
+            </div>
+            <div
+              class="second-section__big-block"
+              v-for="name in topGamesList.slice(7)"
+              :key="name.id"
+            >
+              <div class="second-section__big-img-wrapper">
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
+                  @click="
+                    scrollToTop();
+                    $router.push({
+                      name: 'GameDetails',
+                      params: { id: name.id },
+                    });
+                  "
+                />
+              </div>
             </div>
           </div>
-          <div class="second-section__big-block">
-            <div class="second-section__big-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in spider"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
+          <div class="second-section__second-block-wrapper">
+            <div class="second-section__big-block">
+              <div class="second-section__big-img-wrapper">
+                <img
+                  class="second-section__img"
+                  :src="topGamesList[2].background_image"
+                  alt="img"
+                  @click="
+                    scrollToTop();
+                    $router.push({
+                      name: 'GameDetails',
+                      params: { id: topGamesList[2].id },
+                    });
+                  "
+                />
+              </div>
+            </div>
+            <div
+              class="second-section__small-block"
+              v-for="name in topGamesList.slice(4, 5)"
+              :key="name.id"
+            >
+              <div class="second-section__small-img-wrapper">
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
+                  @click="
+                    scrollToTop();
+                    $router.push({
+                      name: 'GameDetails',
+                      params: { id: name.id },
+                    });
+                  "
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="second-section__second-block-wrapper">
-          <div class="second-section__big-block">
-            <div class="second-section__big-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in cyberpunk"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
-            </div>
+        <div class="second-section__big-block _right-block">
+          <div class="second-section__big-img-wrapper">
+            <img
+              v-for="name in topGamesList.slice(5, 6)"
+              :key="name.id"
+              class="second-section__img"
+              :src="name.background_image"
+              alt="img"
+              @click="
+                scrollToTop();
+                $router.push({
+                  name: 'GameDetails',
+                  params: { id: name.id },
+                });
+              "
+            />
           </div>
-          <div class="second-section__small-block">
-            <div class="second-section__small-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in rising"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="second-section__big-block _right-block">
-        <div class="second-section__big-img-wrapper">
-          <img
-            class="second-section__img"
-            v-for="game in medium"
-            :key="game.id"
-            :src="game.background_image"
-            alt="img"
-            @click="
-              scrollToTop();
-              $router.push({
-                name: 'GameDetails',
-                params: { id: game.id },
-              });
-            "
-          />
         </div>
       </div>
     </div>
-    <div class="second-section__blocks-container">
-      <div class="second-section__blocks-wrapper">
-        <div class="second-section__first-block-wrapper">
-          <div class="second-section__small-block">
-            <div class="second-section__small-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in speed"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
+    <div class="second-section__container">
+      <div class="second-section__blocks-container">
+        <div class="second-section__blocks-wrapper">
+          <div class="second-section__first-block-wrapper">
+            <div
+              class="second-section__small-block"
+              v-for="name in topGamesList.slice(0, 2)"
+              :key="name.id"
+            >
+              <div class="second-section__small-img-wrapper">
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
+                  @click="
+                    scrollToTop();
+                    $router.push({
+                      name: 'GameDetails',
+                      params: { id: name.id },
+                    });
+                  "
+                />
+              </div>
             </div>
           </div>
-          <div class="second-section__small-block">
-            <div class="second-section__small-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in hitman"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
-            </div>
-          </div>
-        </div>
-        <div class="second-section__second-block-wrapper">
-          <div class="second-section__small-block">
-            <div class="second-section__small-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="game in pathless"
-                :key="game.id"
-                :src="game.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
-            </div>
-          </div>
-          <div class="second-section__small-block">
-            <div class="second-section__small-img-wrapper">
-              <img
-                class="second-section__img"
-                v-for="(name, idx) in pushIdGames"
-                :key="idx"
-                :src="name.background_image"
-                alt="img"
-                @click="
-                  scrollToTop();
-                  $router.push({
-                    name: 'GameDetails',
-                    params: { id: game.id },
-                  });
-                "
-              />
+          <div class="second-section__second-block-wrapper">
+            <div
+              class="second-section__small-block"
+              v-for="name in topGamesList.slice(4, 6)"
+              :key="name.id"
+            >
+              <div class="second-section__small-img-wrapper">
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
+                  @click="
+                    scrollToTop();
+                    $router.push({
+                      name: 'GameDetails',
+                      params: { id: name.id },
+                    });
+                  "
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="second-section__sec-right-block">
-        <div class="second-section__big-img-wrapper _sec">
+        <div
+          class="second-section__big-img-wrapper _sec"
+          v-for="name in topGamesList.slice(3, 4)"
+          :key="name.id"
+        >
           <img
             class="second-section__img"
-            v-for="game in valhala"
-            :key="game.id"
-            :src="game.background_image"
+            :src="name.background_image"
             alt="img"
             @click="
               scrollToTop();
               $router.push({
                 name: 'GameDetails',
-                params: { id: game.id },
+                params: { id: name.id },
               });
             "
           />
@@ -217,7 +196,7 @@ import PcGamerLogo from "../../icons/PcGamerLogo";
 import WiiLogo from "../../icons/WiiLogo";
 import Ps3Logo from "../../icons/Ps3Logo";
 import Xbox360Logo from "../../icons/Xbox360Logo";
-// import { httpService } from "../../../http";
+import { httpService } from "../../../http";
 
 export default {
   name: "SecondSection",
@@ -231,35 +210,12 @@ export default {
   },
   data() {
     return {
-      hitman: [],
-      valhala: [],
-      medium: [],
-      cyberpunk: [],
-      souls: [],
-      speed: [],
-      pathless: [],
-      rising: [],
-      spider: [],
-      tes: [],
-      idGames: [
-        {
-          name: 41494,
-        },
-      ],
-      // idGamesList: [],
+      idGames: [463723, 58751, 41494, 437059, 303576, 440081, 452642, 45775],
+      topGamesList: [],
     };
   },
   computed: {
     ...mapState("games", ["topGames", "gameDetails"]),
-    pushIdGames() {
-      const arr = [];
-      for (let i in this.idGames) {
-        if (this.idGames.name === this.topGames.id) {
-          arr.push(this.topGames[i]);
-        }
-      }
-      return arr;
-    },
   },
   methods: {
     ...mapActions("games", ["fetchTopGames", "getGameDetails"]),
@@ -271,20 +227,22 @@ export default {
     },
   },
   async created() {
+    for (const id of this.idGames) {
+      const singleGameDetail = await httpService.getGameDetails(id);
+      this.topGamesList.push(singleGameDetail);
+    }
+    console.log("this.topGamesList", this.topGamesList);
     // this.idGamesList = pushIdGames(this.idGames.name1);
     // console.log(this.idGamesList);
 
     await this.fetchTopGames();
     this.getGameDetails();
-    // const test = await httpService.getGameDetails(41494);
-    // this.tes = test;
-    // console.log(this.tes);
     this.hitman = this.topGames.slice(8, 9);
     this.valhala = this.topGames.slice(2, 3);
     this.medium = this.topGames.slice(5, 6);
     this.cyberpunk = this.topGames.slice(0, 1);
     this.souls = this.topGames.slice(14, 15);
-    this.speed = this.topGames.slice(17, 18);
+    this.speed = this.topGames.slice(18, 19);
     this.pathless = this.topGames.slice(15, 16);
     this.rising = this.topGames.slice(3, 4);
     this.spider = this.topGames.slice(4, 5);
@@ -293,6 +251,9 @@ export default {
 </script>
 <style lang="scss">
 .second-section {
+  &__container {
+    display: flex;
+  }
   &__list {
     @include flex(space-between, start);
     padding: 50px 28px;
@@ -341,7 +302,7 @@ export default {
   &__small-img-wrapper {
     overflow: hidden;
     position: relative;
-    padding-bottom: 104%;
+    padding-bottom: 103%;
     width: 100%;
   }
   &__big-block {
@@ -353,7 +314,7 @@ export default {
     display: flex;
     &._right-block {
       background-color: $side-bar-bg-color;
-      min-width: 270px;
+      min-width: 315px;
       width: 100%;
       min-height: 590px;
       height: 100%;
