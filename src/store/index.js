@@ -1,4 +1,4 @@
-import { games } from "./modules";
+import { games, authentication, gameStore } from "./modules";
 
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -11,5 +11,7 @@ export default new Vuex.Store({
     actions: {},
     modules: {
         games,
+        authentication,
+        gameStore,
     }
 })

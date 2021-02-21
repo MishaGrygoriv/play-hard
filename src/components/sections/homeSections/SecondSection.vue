@@ -60,7 +60,7 @@
           <div class="second-section__second-block-wrapper">
             <div class="second-section__big-block">
               <div class="second-section__big-img-wrapper">
-                <img
+                <!-- <img
                   class="second-section__img"
                   :src="topGamesList[2].background_image"
                   alt="img"
@@ -71,7 +71,7 @@
                       params: { id: topGamesList[2].id },
                     });
                   "
-                />
+                /> -->
               </div>
             </div>
             <div

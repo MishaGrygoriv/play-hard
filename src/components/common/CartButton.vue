@@ -1,14 +1,20 @@
 <template>
-  <a-button class="cart-button" type="primary">
+  <a-button class="cart-button" type="primary" @click="handleClick()">
     {{ `In cart ` + `$` + randomNumber() }}
   </a-button>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "CartButton",
   methods: {
     randomNumber() {
-      return Math.floor(10.99 + Math.random() * 99.99);
+      return Math.floor(10.99 + Math.random() * 99.99).toFixed(2);
+    },
+    ...mapActions("gameStore", ["addItemToCart"]),
+    handleClick(card) {
+      this.addItemToCart(card);
     },
   },
 };

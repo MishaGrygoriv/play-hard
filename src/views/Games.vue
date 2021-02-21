@@ -88,7 +88,7 @@ export default {
     },
     handlePaginationChange(e) {
       this.changePage(e);
-      this.fetchBestGamesOfTheYear({ page: this.page });
+      this.fetchBestGamesOfTheYear(e);
       document.body.scrollIntoView();
       console.log("change", e);
     },

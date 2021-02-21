@@ -21,24 +21,33 @@
         <a href="#" class="header__icon">
           <a-icon type="heart" />
         </a>
-        <a href="#" class="header__icon">
+        <!-- <a href="#" class="header__icon">
           <a-icon type="shopping" />
-        </a>
+        </a> -->
+        <modal-shopping-list />
       </div>
       <div class="header__login-wrapper">
-        <a href="#" class="header__login">Login</a>
-        <a href="#" class="header__login">Registration</a>
+        <modal-login />
+        <modal-register />
+        <!-- <a href="#" class="header__login">Login</a>
+        <a href="#" class="header__login">Registration</a> -->
       </div>
     </div>
   </div>
 </template>
 <script>
+import ModalLogin from "../common/login/ModalLogin.vue";
+import ModalRegister from "../common/login/ModalRegister.vue";
+import ModalShoppingList from "../common/ModalShoppingList.vue";
 import IconLogo from "../icons/IconLogo";
 
 export default {
   name: "TheNav",
   components: {
     IconLogo,
+    ModalLogin,
+    ModalRegister,
+    ModalShoppingList,
   },
   data() {
     return {
@@ -115,27 +124,30 @@ export default {
       color: $yellow-color;
     }
   }
-  &__login {
-    @include text($H40, 400, $yellow-color);
-    margin-right: 25px;
-    &:last-child {
-      margin-right: 0;
-      position: relative;
-      &::before {
-        content: "";
-        background-color: $border-line-color;
-        position: absolute;
-        width: 1px;
-        height: 24px;
-        top: 0;
-        bottom: 0;
-        left: -13px;
-        right: 0;
-      }
-    }
-    &:hover {
-      color: darken($yellow-color, 30);
-    }
+  &__login-wrapper {
+    @include flex(stretch, stretch);
   }
+  // &__login {
+  //   @include text($H40, 400, $yellow-color);
+  //   margin-right: 25px;
+  //   &:last-child {
+  //     margin-right: 0;
+  //     position: relative;
+  //     &::before {
+  //       content: "";
+  //       background-color: $border-line-color;
+  //       position: absolute;
+  //       width: 1px;
+  //       height: 24px;
+  //       top: 0;
+  //       bottom: 0;
+  //       left: -13px;
+  //       right: 0;
+  //     }
+  //   }
+  //   &:hover {
+  //     color: darken($yellow-color, 30);
+  //   }
+  // }
 }
 </style>

@@ -20,6 +20,10 @@ const GamesInput = () =>
     import ( /* webpackChunkName: "gamesInput" */ "../views/GamesInput.vue");
 const GameDetails = () =>
     import ( /* webpackChunkName: "gameDetails" */ "../views/GameDetails.vue");
+const Login = () =>
+    import ( /* webpackChunkName: "login" */ "../views/Login.vue");
+const Register = () =>
+    import ( /* webpackChunkName: "register" */ "../views/Register.vue");
 
 Vue.use(VueRouter)
 
@@ -68,19 +72,16 @@ const routes = [{
         name: routesNames.gameDetails,
         component: GameDetails,
     },
-    // {
-    //     path: '/',
-    //     name: 'Home',
-    //     component: Home
-    // },
-    //{
-    // path: '/about',
-    //name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-    // }
+    {
+        path: routesPath.login,
+        name: routesNames.login,
+        component: Login,
+    },
+    {
+        path: routesPath.register,
+        name: routesNames.register,
+        component: Register,
+    },
 ]
 
 const router = new VueRouter({

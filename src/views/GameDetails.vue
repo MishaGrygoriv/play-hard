@@ -6,7 +6,7 @@
         :style="{
           zIndex: `1`,
           height: `500px`,
-          backgroundImage: `linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)),linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.8)),url(${gameDetails.background_image})`,
+          backgroundImage: `linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)),linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5)),url(${gameDetails.background_image})`,
         }"
       ></div>
     </div>
@@ -235,6 +235,10 @@ export default {
     max-width: 550px;
     width: 100%;
     border-radius: 10px;
+    &:focus {
+      border: none;
+      outline: none;
+    }
   }
   &__list {
     margin-bottom: 56px;

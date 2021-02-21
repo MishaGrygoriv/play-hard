@@ -1,7 +1,7 @@
 <template>
   <div class="side-bar container">
     <ul class="side-bar__list-icon">
-      <li class="side-bar__item-icon">
+      <!-- <li class="side-bar__item-icon">
         <a-button
           class="side-bar__btn"
           type="primary"
@@ -11,7 +11,7 @@
             scrollToTop();
           "
         />
-      </li>
+      </li> -->
       <li class="side-bar__item-icon" v-for="icon in icons" :key="icon.type">
         <a-icon class="side-bar__link-icon" :type="icon.type" />
       </li>
@@ -42,9 +42,9 @@
           >{{ route.name }}</router-link
         >
       </li>
-      <li class="side-bar__item">
+      <!-- <li class="side-bar__item">
         <a href="#" class="side-bar__link">Login</a>
-      </li>
+      </li> -->
       <li class="side-bar__item">
         <a href="#" class="side-bar__link">Create Account</a>
       </li>
@@ -88,8 +88,19 @@ export default {
           name: "About",
           path: "/about",
         },
+        {
+          name: "Login",
+          path: "/login",
+        },
+        {
+          name: "Register",
+          path: "/register",
+        },
       ],
       icons: [
+        {
+          type: "search",
+        },
         {
           type: "home",
         },

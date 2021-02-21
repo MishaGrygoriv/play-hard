@@ -8,6 +8,8 @@ export const routesNames = {
     about: 'About',
     gamesInput: 'GamesInput',
     gameDetails: 'GameDetails',
+    login: 'Login',
+    register: 'Register',
 };
 
 export const routesPath = {
@@ -20,4 +22,6 @@ export const routesPath = {
     about: '/about',
     gamesInput: '/games/:gamesInput',
     gameDetails: '/games/:id',
+    login: '/login',
+    register: '/register',
 };
