@@ -8,7 +8,7 @@
     <a-modal with="600" v-model="visible" title="Shopping List" @ok="handleOk">
       <template slot="footer">
         <a-button @click="$store.dispatch('gameStore/clearCartState')">
-          Return
+          Remove
         </a-button>
         <a-button
           key="submit"
@@ -18,7 +18,7 @@
             handleOk();
           "
         >
-          Submit
+          Buy Now
         </a-button>
       </template>
       <shopping-list />

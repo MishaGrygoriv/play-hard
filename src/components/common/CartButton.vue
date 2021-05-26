@@ -15,6 +15,7 @@ export default {
     ...mapActions("gameStore", ["addItemToCart"]),
     handleClick(card) {
       this.addItemToCart(card);
+      console.log(card);
     },
   },
 };
@@ -28,6 +29,13 @@ export default {
   padding: 0 25px;
   border: none;
   outline: none;
+  border: 2px solid transparent;
   cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover,
+  &:focus {
+    background-color: $side-bar-bg-color;
+    border: 2px solid $yellow-color;
+  }
 }
 </style>

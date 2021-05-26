@@ -1,17 +1,6 @@
 <template>
   <div class="side-bar container">
     <ul class="side-bar__list-icon">
-      <!-- <li class="side-bar__item-icon">
-        <a-button
-          class="side-bar__btn"
-          type="primary"
-          icon="search"
-          @click="
-            handleSubmit();
-            scrollToTop();
-          "
-        />
-      </li> -->
       <li class="side-bar__item-icon" v-for="icon in icons" :key="icon.type">
         <a-icon class="side-bar__link-icon" :type="icon.type" />
       </li>
@@ -24,6 +13,9 @@
             scrollToTop();
           "
           v-model="query"
+          type="search"
+          name="search"
+          id="search"
           placeholder="search"
           class="side-bar__input"
         />
@@ -45,9 +37,9 @@
       <!-- <li class="side-bar__item">
         <a href="#" class="side-bar__link">Login</a>
       </li> -->
-      <li class="side-bar__item">
+      <!-- <li class="side-bar__item">
         <a href="#" class="side-bar__link">Create Account</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
@@ -93,7 +85,7 @@ export default {
           path: "/login",
         },
         {
-          name: "Register",
+          name: "Create Account",
           path: "/register",
         },
       ],
@@ -105,7 +97,7 @@ export default {
           type: "home",
         },
         {
-          type: "reddit",
+          type: "smile",
         },
         {
           type: "play-square",
@@ -168,9 +160,6 @@ export default {
       this.handleSubmit();
     },
   },
-  // async created() {
-  //   await this.getGamesByQuery({ query: this.query });
-  // },
 };
 </script>
 <style lang="scss">
@@ -178,16 +167,6 @@ export default {
   padding-top: 125px;
   position: fixed;
   z-index: 20;
-  // overflow: hidden;
-  // &__hidden {
-  //   min-width: 165px;
-  //   width: 100%;
-  //   height: 58%;
-  //   background: $main-bg-color;
-  //   position: absolute;
-  //   left: -165px;
-  //   z-index: 20;
-  // }
   &__list-icon {
     padding: 45px 15px;
     width: 50px;
@@ -286,36 +265,8 @@ export default {
       box-shadow: none;
     }
   }
-  // // margin-left: 150px;
-  // width: 100%;
-  // position: fixed;
-  // z-index: 19;
-  // // max-width: 20px;
-  // background: $nav-bg-color;
-  // transition: all 0.5s ease;
-
-  // &:hover {
-  //   // max-width: 400px;
-  // }
-  // &__item-icon {
-  //   color: white;
-  //   @include flex(start, start);
-  // }
-  // &__empty-block {
-  //   min-width: 400px;
-  //   width: 100%;
-  // }
-  // &__link {
-  //   display: block;
-  //   max-width: 200px;
-  //   width: 100%;
-  // }
 }
-// .side-bar__list-link {
-//   transform: translateX(-170px);
-//   background-color: grey;
-// }
-// .side-bar__list-icon:hover + .side-bar__list-link {
-//   transform: translateX(0px);
-// }
+.side-bar__item:hover .side-bar__link-icon svg {
+  fill: red;
+}
 </style>

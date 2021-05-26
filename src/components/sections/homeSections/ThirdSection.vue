@@ -88,7 +88,7 @@ export default {
   }
   &__link {
     @include flex(center, center);
-    background: $side-bar-bg-color;
+    background: $bg-color;
     padding: 84px 60px;
     width: 100%;
     transition: background-color 0.5s ease;

@@ -3,7 +3,7 @@
     <a-button class="modal-login__btn" type="primary" @click="showModal"
       >Login</a-button
     >
-    <a-modal with="600" v-model="visible" title="Play-Hard" @ok="handleOk">
+    <a-modal with="600" v-model="visible" title="Login" @ok="handleOk">
       <the-login />
     </a-modal>
   </div>
@@ -75,5 +75,8 @@ export default {
       border-radius: 0;
     }
   }
+}
+.ant-modal-body {
+  padding: 0;
 }
 </style>

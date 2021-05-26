@@ -3,7 +3,7 @@
     <a-button class="modal-register__btn" type="primary" @click="showModal"
       >Registration</a-button
     >
-    <a-modal with="600" v-model="visible" title="Play-Hard" @ok="handleOk">
+    <a-modal with="600" v-model="visible" title="Registration" @ok="handleOk">
       <the-register />
     </a-modal>
   </div>
@@ -63,5 +63,8 @@ export default {
       border-radius: 0;
     }
   }
+}
+.ant-modal-body {
+  padding: 0;
 }
 </style>

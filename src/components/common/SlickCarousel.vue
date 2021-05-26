@@ -36,12 +36,10 @@ export default {
       settings: {
         dots: true,
         arrows: true,
-        //focusOnSelect: true,
         infinite: true,
-        speed: 500,
+        speed: 2000,
         slidesToShow: 4,
         slidesToScroll: 4,
-        //touchThreshold: 4,
       },
     };
   },

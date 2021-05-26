@@ -38,40 +38,72 @@
             </div>
             <div
               class="second-section__big-block"
-              v-for="name in topGamesList.slice(7)"
+              v-for="name in topGamesList.slice(8)"
               :key="name.id"
             >
-              <div class="second-section__big-img-wrapper">
+              <div
+                class="second-section__big-img-wrapper"
+                @mouseover="hover = true"
+                @mouseleave="hover = false"
+              >
+                <div class="second-section__hover" v-if="hover">
+                  <h2 class="second-section__hover-title">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
                 <img
                   class="second-section__img"
                   :src="name.background_image"
                   alt="img"
-                  @click="
-                    scrollToTop();
-                    $router.push({
-                      name: 'GameDetails',
-                      params: { id: name.id },
-                    });
-                  "
                 />
               </div>
             </div>
           </div>
           <div class="second-section__second-block-wrapper">
-            <div class="second-section__big-block">
-              <div class="second-section__big-img-wrapper">
-                <!-- <img
+            <div
+              class="second-section__big-block"
+              v-for="name in topGamesList.slice(2, 3)"
+              :key="name.id"
+            >
+              <div
+                class="second-section__big-img-wrapper"
+                @mouseover="hoverSecond = true"
+                @mouseleave="hoverSecond = false"
+              >
+                <div class="second-section__hover _second" v-if="hoverSecond">
+                  <h2 class="second-section__hover-title">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
+                <img
                   class="second-section__img"
-                  :src="topGamesList[2].background_image"
+                  :src="name.background_image"
                   alt="img"
-                  @click="
-                    scrollToTop();
-                    $router.push({
-                      name: 'GameDetails',
-                      params: { id: topGamesList[2].id },
-                    });
-                  "
-                /> -->
+                />
               </div>
             </div>
             <div
@@ -79,38 +111,68 @@
               v-for="name in topGamesList.slice(4, 5)"
               :key="name.id"
             >
-              <div class="second-section__small-img-wrapper">
+              <div
+                class="second-section__small-img-wrapper"
+                @mouseover="hoverThird = true"
+                @mouseleave="hoverThird = false"
+              >
+                <div class="second-section__hover _third" v-if="hoverThird">
+                  <h2 class="second-section__hover-title _third">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button _third"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
                 <img
                   class="second-section__img"
                   :src="name.background_image"
                   alt="img"
-                  @click="
-                    scrollToTop();
-                    $router.push({
-                      name: 'GameDetails',
-                      params: { id: name.id },
-                    });
-                  "
                 />
               </div>
             </div>
           </div>
         </div>
-        <div class="second-section__big-block _right-block">
-          <div class="second-section__big-img-wrapper">
+        <div
+          class="second-section__big-block _right-block"
+          v-for="name in topGamesList.slice(5, 6)"
+          :key="name.id"
+        >
+          <div
+            class="second-section__big-img-wrapper"
+            @mouseover="hoverFourth = true"
+            @mouseleave="hoverFourth = false"
+          >
+            <div class="second-section__hover _fourth" v-if="hoverFourth">
+              <h2 class="second-section__hover-title _fourth">
+                {{ name.name }}
+              </h2>
+              <button
+                class="second-section__button _fourth"
+                @click="
+                  scrollToTop();
+                  $router.push({
+                    name: 'GameDetails',
+                    params: { id: name.id },
+                  });
+                "
+              >
+                Details
+              </button>
+            </div>
             <img
-              v-for="name in topGamesList.slice(5, 6)"
-              :key="name.id"
               class="second-section__img"
               :src="name.background_image"
               alt="img"
-              @click="
-                scrollToTop();
-                $router.push({
-                  name: 'GameDetails',
-                  params: { id: name.id },
-                });
-              "
             />
           </div>
         </div>
@@ -122,21 +184,69 @@
           <div class="second-section__first-block-wrapper">
             <div
               class="second-section__small-block"
-              v-for="name in topGamesList.slice(0, 2)"
+              v-for="name in topGamesList.slice(0, 1)"
               :key="name.id"
             >
-              <div class="second-section__small-img-wrapper">
+              <div
+                class="second-section__small-img-wrapper"
+                @mouseover="hoverFifth = true"
+                @mouseleave="hoverFifth = false"
+              >
+                <div class="second-section__hover _fifth" v-if="hoverFifth">
+                  <h2 class="second-section__hover-title _fifth">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button _third"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
                 <img
                   class="second-section__img"
                   :src="name.background_image"
                   alt="img"
-                  @click="
-                    scrollToTop();
-                    $router.push({
-                      name: 'GameDetails',
-                      params: { id: name.id },
-                    });
-                  "
+                />
+              </div>
+            </div>
+            <div
+              class="second-section__small-block"
+              v-for="name in topGamesList.slice(1, 2)"
+              :key="name.id"
+            >
+              <div
+                class="second-section__small-img-wrapper"
+                @mouseover="hoverSixth = true"
+                @mouseleave="hoverSixth = false"
+              >
+                <div class="second-section__hover _third" v-if="hoverSixth">
+                  <h2 class="second-section__hover-title _fifth">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button _third"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
                 />
               </div>
             </div>
@@ -144,44 +254,106 @@
           <div class="second-section__second-block-wrapper">
             <div
               class="second-section__small-block"
-              v-for="name in topGamesList.slice(4, 6)"
+              v-for="name in topGamesList.slice(6, 7)"
               :key="name.id"
             >
-              <div class="second-section__small-img-wrapper">
+              <div
+                class="second-section__small-img-wrapper"
+                @mouseover="hoverSeventh = true"
+                @mouseleave="hoverSeventh = false"
+              >
+                <div class="second-section__hover _seventh" v-if="hoverSeventh">
+                  <h2 class="second-section__hover-title _seventh">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button _seventh"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
                 <img
                   class="second-section__img"
                   :src="name.background_image"
                   alt="img"
-                  @click="
-                    scrollToTop();
-                    $router.push({
-                      name: 'GameDetails',
-                      params: { id: name.id },
-                    });
-                  "
+                />
+              </div>
+            </div>
+            <div
+              class="second-section__small-block"
+              v-for="name in topGamesList.slice(7, 8)"
+              :key="name.id"
+            >
+              <div
+                class="second-section__small-img-wrapper"
+                @mouseover="hoverEighth = true"
+                @mouseleave="hoverEighth = false"
+              >
+                <div class="second-section__hover _eighth" v-if="hoverEighth">
+                  <h2 class="second-section__hover-title _seventh">
+                    {{ name.name }}
+                  </h2>
+                  <button
+                    class="second-section__button _seventh"
+                    @click="
+                      scrollToTop();
+                      $router.push({
+                        name: 'GameDetails',
+                        params: { id: name.id },
+                      });
+                    "
+                  >
+                    Details
+                  </button>
+                </div>
+                <img
+                  class="second-section__img"
+                  :src="name.background_image"
+                  alt="img"
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="second-section__sec-right-block">
+      <div
+        class="second-section__sec-right-block"
+        v-for="name in topGamesList.slice(3, 4)"
+        :key="name.id"
+      >
         <div
           class="second-section__big-img-wrapper _sec"
-          v-for="name in topGamesList.slice(3, 4)"
-          :key="name.id"
+          @mouseover="hoverNinth = true"
+          @mouseleave="hoverNinth = false"
         >
+          <div class="second-section__hover _ninth" v-if="hoverNinth">
+            <h2 class="second-section__hover-title _ninth">
+              {{ name.name }}
+            </h2>
+            <button
+              class="second-section__button"
+              @click="
+                scrollToTop();
+                $router.push({
+                  name: 'GameDetails',
+                  params: { id: name.id },
+                });
+              "
+            >
+              Details
+            </button>
+          </div>
           <img
             class="second-section__img"
             :src="name.background_image"
             alt="img"
-            @click="
-              scrollToTop();
-              $router.push({
-                name: 'GameDetails',
-                params: { id: name.id },
-              });
-            "
           />
         </div>
       </div>
@@ -210,7 +382,26 @@ export default {
   },
   data() {
     return {
-      idGames: [463723, 58751, 41494, 437059, 303576, 440081, 452642, 45775],
+      hover: false,
+      hoverSecond: false,
+      hoverThird: false,
+      hoverFourth: false,
+      hoverFifth: false,
+      hoverSixth: false,
+      hoverSeventh: false,
+      hoverEighth: false,
+      hoverNinth: false,
+      idGames: [
+        463723,
+        58751,
+        41494,
+        437059,
+        303576,
+        440081,
+        452642,
+        58386,
+        45775,
+      ],
       topGamesList: [],
     };
   },
@@ -251,6 +442,80 @@ export default {
 </script>
 <style lang="scss">
 .second-section {
+  &__hover {
+    position: absolute;
+    z-index: 10;
+    top: 47px;
+    left: 200px;
+    &:hover + .second-section__img {
+      opacity: 0.4;
+    }
+    &._second {
+      left: 150px;
+    }
+    &._third {
+      left: 80px;
+    }
+    &._fourth {
+      top: 180px;
+      left: 60px;
+    }
+    &._fifth {
+      left: 90px;
+    }
+    &._seventh {
+      left: 70px;
+    }
+    &._eighth {
+      top: 80px;
+      left: 70px;
+    }
+    &._ninth {
+      top: 180px;
+      left: 120px;
+    }
+  }
+  &__hover-title {
+    @include text($H330, 400, $game-title-color);
+    margin-bottom: 50px;
+    &._third {
+      font-size: $H220;
+    }
+    &._fifth {
+      font-size: $H260;
+    }
+    &._seventh {
+      font-size: $H240;
+    }
+    &._ninth {
+      font-size: $H360;
+    }
+  }
+  &__button {
+    width: 100%;
+    @include flex(center, center);
+    @include text($H80, 400, $yellow-color);
+    background-color: transparent;
+    height: 47px;
+    padding: 0 25px;
+    border: 2px solid $yellow-color;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: $yellow-color;
+      color: $dark-color;
+      font-weight: 600;
+    }
+    &._third {
+      max-width: 140px;
+      width: 100%;
+    }
+    &._seventh {
+      max-width: 178px;
+      width: 100%;
+    }
+  }
   &__container {
     display: flex;
   }
@@ -271,16 +536,23 @@ export default {
     display: flex;
   }
   &__small-block {
-    background-color: $side-bar-bg-color;
+    background-color: $bg-color;
     min-width: 285px;
     width: 100%;
     min-height: 295px;
     height: 100%;
     @include flex(center, center);
     &._bg-hover {
+      cursor: pointer;
       transition: background-color 0.5s ease;
       &:hover {
-        background-color: $social-hover-color;
+        background-color: rgba($social-hover-color, 0.5);
+      }
+      &:hover h2 {
+        color: $light-color;
+      }
+      &:hover svg path {
+        fill: $light-color;
       }
     }
   }
@@ -293,11 +565,15 @@ export default {
     svg {
       width: 50px;
       height: 50px;
+      path {
+        transition: all 0.3s ease;
+      }
     }
   }
   &__title {
     @include text($H200, 400, $text-color);
     text-transform: uppercase;
+    transition: all 0.3s ease;
   }
   &__small-img-wrapper {
     overflow: hidden;
@@ -338,7 +614,10 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    cursor: pointer;
+    transition: opacity 0.5s ease;
+    &:hover {
+      opacity: 0.4;
+    }
   }
   &__sec-right-block {
     background-color: $side-bar-bg-color;

@@ -1,19 +1,5 @@
 <template>
-  <a-carousel class="carousel" arrows autoplay :autoplaySpeed="5000">
-    <div
-      slot="prevArrow"
-      class="carousel__arrow custom-slick-arrow"
-      style="left: 10px;zIndex: 1"
-    >
-      <a-icon type="left-circle" />
-    </div>
-    <div
-      slot="nextArrow"
-      class="carousel__arrow custom-slick-arrow"
-      style="right: 10px"
-    >
-      <a-icon type="right-circle" />
-    </div>
+  <VueSlickCarousel v-bind="settings">
     <div class="carousel__item" v-for="item in items" :key="item.path">
       <iframe
         class="carousel__video"
@@ -23,19 +9,30 @@
         autoplay
         loop
       ></iframe>
-      <!-- <img
-        class="carousel__img"
-        src="https://picsum.photos/id/237/800/350"
-        alt=""
-      /> -->
     </div>
-  </a-carousel>
+  </VueSlickCarousel>
 </template>
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
   name: "TheCarousel",
+  components: { VueSlickCarousel },
   data() {
     return {
+      settings: {
+        accessibility: false,
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+      },
       items: [
         {
           path: "https://www.youtube.com/embed/hr6aEhU-KhI",

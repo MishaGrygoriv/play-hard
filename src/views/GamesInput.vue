@@ -1,6 +1,5 @@
 <template>
   <div class="games container">
-    <h2>GamesInput</h2>
     <div class="games__col-wrapper" v-for="game in games" :key="game.id">
       <div
         class="games__first-col"
@@ -47,7 +46,7 @@
         </div>
         <div class="games__right-col">
           <div class="games__rating-wrapper">
-            <span class="games__rating">
+            <span class="games__rating-value">
               {{ game.rating }}
             </span>
             <a-rate class="games__rating-stars" :default-value="game.rating" />
@@ -83,6 +82,7 @@
       </div>
     </div> -->
     <a-pagination
+      class="games__pagination"
       v-if="Number(count) > 20"
       :pageSize="pageSize"
       @change="handlePaginationChange"
@@ -200,7 +200,7 @@ export default {
     @include flex(flex-end, end, row);
     margin-bottom: 48px;
   }
-  &__rating {
+  &__rating-value {
     @include text($H200, 600, $yellow-color);
     display: block;
     margin-right: 12px;
@@ -214,29 +214,8 @@ export default {
     width: 100%;
     margin-bottom: 23px;
   }
-  // &__form {
-  //   @include flex(stretch, stretch);
-  //   margin-bottom: 32px;
-  // }
-  // &__input {
-  //   flex: 1;
-  //   margin-right: 30px;
-  // }
-  // &__row {
-  //   @include flex(stretch, stretch, column);
-  //   flex-wrap: wrap;
-  //   margin: 0 -10px;
-  // }
-  // &__col {
-  //   max-height: 215px;
-  // }
-  // &__col {
-  //   padding: 10px;
-  //   flex: 1 1 calc(100% / 4);
-  //   max-width: calc(100% / 4);
-  //   & > div {
-  //     height: 100%;
-  //   }
-  // }
+  &__pagination {
+    @include flex(center, center);
+  }
 }
 </style>

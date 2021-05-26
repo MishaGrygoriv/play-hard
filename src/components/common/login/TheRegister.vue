@@ -8,7 +8,8 @@
       @submit.native.prevent
     >
       <a-form-model-item>
-        <a-input type="email" v-model="formInline.email" placeholder="EMail">
+        <h2 class="the-register__title">Email</h2>
+        <a-input type="email" v-model="formInline.email" placeholder="Email">
           <a-icon
             slot="prefix"
             type="email"
@@ -17,6 +18,7 @@
         </a-input>
       </a-form-model-item>
       <a-form-model-item>
+        <h2 class="the-register__title">Password</h2>
         <a-input
           v-model="formInline.password"
           type="password"
@@ -30,6 +32,7 @@
         </a-input>
       </a-form-model-item>
       <a-form-model-item>
+        <h2 class="the-register__title">Repeat Password</h2>
         <a-input
           v-model="formInline.passwordRepeat"
           type="password"
@@ -85,18 +88,30 @@ export default {
       }
     },
   },
-  // computed: {
-  //   ...mapActions([["isUserAuth"]]),
-  // },
 };
 </script>
 
 <style lang="scss">
 .the-register {
-  padding: 100px 0;
+  padding: 50px 0 20px;
+  background-color: $side-bar-bg-color;
   @include flex(center, center);
   &__form {
     @include flex(center, center, column);
+    max-width: 300px;
+    width: 100%;
   }
+  &__title {
+    @include text($H200, 400, $text-color);
+  }
+}
+.ant-form-item-control {
+  margin-bottom: 20px;
+}
+.ant-form-inline .ant-form-item {
+  margin-right: 0;
+}
+.ant-input-affix-wrapper .ant-input:not(:first-child) {
+  width: 300px;
 }
 </style>
